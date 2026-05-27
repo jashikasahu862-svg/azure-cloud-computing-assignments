@@ -66,6 +66,6 @@ To design and implement a highly resilient and available cloud infrastructure us
 ---
 
 ## 📁 Project Source Documents
-* Detailed step-by-step screenshots and laboratory proofs are organized in the folders below:
-  * [Assignment 1 - VM & Web Hosting Docs](./Assignment-1-VM-Deployment/)
-  * [Assignment 2 - Availability Sets Docs](./Assignment-2-Availability-Sets/)
+* Detailed step-by-step screenshots and laboratory proofs are organized in the files below:
+  * [Assignment 1 - VM & Web Hosting Docs](./Jashika_Sahu_Assignment1.pdf)
+  * [Assignment 2 - Availability Sets Docs](./Jashika_Sahu_Assignment2.pdf)
