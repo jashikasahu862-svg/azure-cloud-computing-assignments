@@ -2,7 +2,7 @@
 
 **Student Name:** Jashika Sahu  
 **Platform:** Microsoft Azure  
-**Domain:** Cloud Infrastructure & Web Architecture
+**Domain:** Cloud Infrastructure & Architecture
 
 ---
 
