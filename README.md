@@ -65,7 +65,42 @@ To design and implement a highly resilient and available cloud infrastructure us
 
 ---
 
+---
+
+## 📂 Project 3: Production VM Image Customization, Automated Provisioning & Cross-Region Replication
+
+### 📌 Objective
+To architect an enterprise-grade image deployment pipeline by configuring a baseline Ubuntu Server with automated web nodes, capturing a specialized custom platform image via Azure Compute Gallery, dynamically launching cloned instances, and establishing cross-region replication for disaster recovery (DR) resiliency.
+
+### 🛠️ Key Architectural Components
+* **Compute Gallery Asset:** `gallery1/img1/0.0.1`
+* **Image Capture Profile:** `Specialized State` (Preserves underlying cryptographic settings & dependencies)
+* **Automation Mechanism:** `Cloud-Init / User Data Shell Scripting`
+* **Source Datacenter:** `Central India`
+* **Target DR Location:** `Malaysia East (Asia Pacific)`
+* **Validated Edge Gateways:**
+  * Baseline Node Public IP: `135.235.217.182`
+  * Cloned Image Node Public IP: `40.81.232.61`
+  * Replicated Zone Node Public IP: `20.17.99.82`
+
+### 🚀 Step-by-Step Implementation
+
+1. **Automated Provisioning Setup:** Initialized an enterprise Linux environment using the `Create Virtual Machine` wizard. Provisioned standard compute specs, enabled the automated **User Data Injection** layer under the advanced parameters, and mapped a custom bash bootstrap process to execute a zero-touch Apache HTTP setup (`apache2`):
+```bash
+   #!/bin/bash
+   sudo apt-get update -y
+   sudo apt-get install apache2 -y
+   sudo systemctl start apache2
+   sudo systemctl enable apache2
+   echo "<h1>Azure Web Server - Apache Deployed Successfully via User Data</h1>" | sudo tee /var/www/html/index.html
+```
+2. **Specialized Image Capture Sequence:** Stopped and safely deallocated the operational server node to guarantee data integrity. Initiated the **Azure Platform Capture Pipeline**, configuring a specialized template engine definition inside the managed repository to lock down the exact state of the environment.
+3. **Template Validation & Node Cloning:** Queried the active Azure Compute Gallery, target-selected version `0.0.1`, and directly instantiated a decoupled cloned virtual machine node (`CreateVm-img1-20260529011104`). The instance dynamically provisioned without manual configuration, confirming structural deployment compliance.
+4. **Endpoint Compliance Check:** Extracted the networking gateway public address (`40.81.232.61`) from the clone node. Executed HTTP browser queries and validated that the web endpoints were running natively right out-of-the-box.
+5. **Cross-Region Replication & Sync:** Selected the custom gallery image profile and triggered the **Update Replication Architecture Engine**. Formally mapped **Malaysia East** as a secondary target region, executed multi-zone background sync tasks, and successfully validated a running edge instance isolated inside the Asia Pacific zone (`20.17.99.82`).
+
 ## 📁 Project Source Documents
 * Detailed step-by-step screenshots and laboratory proofs are organized in the files below:
   * [Assignment 1 - VM & Web Hosting Docs](./Jashika_Sahu_Assignment1.pdf)
   * [Assignment 2 - Availability Sets Docs](./Jashika_Sahu_Assignment2.pdf)
+  * [Assignment 3 - VM Image & Replication Docs](./Jashika_Sahu_Assignment3.pdf)
