@@ -60,10 +60,22 @@ To design and implement a highly resilient and available cloud infrastructure us
 
 ---
 
+### 📸 Project 3: Live Deployment & Global Replication Proofs
+
+#### 1. Cloud Architecture & Image Replication Status
+Below is the live validation from the Azure portal showing the deployment completion and replication synchronization parameters to the Malaysia East edge zone:
+![Azure Image Replication Status](./vm-replication-proof.png)
+
+#### 2. Cloned Node Endpoint Verification (Public IP: 40.81.232.61)
+HTTP traffic validation hitting the newly cloned VM instance directly from the custom image architecture:
+![Cloned Node Apache Proof](./clone-web-proof.png)
+
+#### 3. Disaster Recovery Node Validation (Malaysia East - Public IP: 20.17.99.82)
+Successful active response serving the custom automated application tier from the cross-region replicated instance:
+![Malaysia East DR Node Proof](./malaysia-web-proof.png)
+
 ### 📸 Project Deployment Proof
 ![Apache Web Server Live](./apache-proof.jpeg)
-
----
 
 ---
 
